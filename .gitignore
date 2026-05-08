@@ -1,0 +1,8 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Daily generated briefings are personal local files.
+data/*/

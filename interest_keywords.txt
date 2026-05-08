@@ -1,0 +1,23 @@
+# 興味のあるテーマを1行に1つ書くと、そのニュースが選ばれやすくなります。
+# 英語ニュースのRSSを読むので、英語キーワードが特に効きます。
+
+chatgpt
+claude
+gemini
+agents
+agent
+automation
+productivity
+business
+workflow
+office
+email
+spreadsheet
+meeting
+notebooklm
+perplexity
+cursor
+copilot
+notion
+canva
+zapier
