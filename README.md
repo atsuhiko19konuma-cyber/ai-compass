@@ -306,3 +306,4 @@ The audio briefing is now designed to be short and low cost:
 The goal is simple:
 
 > Every morning, calmly understand useful AI news in 5 minutes.
+# ai-compass
