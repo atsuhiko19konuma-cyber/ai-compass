@@ -67,7 +67,6 @@ def generate_story_summaries(articles: list[dict[str, Any]]) -> list[dict[str, A
     response = client.responses.create(
         model=model,
         input=prompt,
-        reasoning={"effort": "minimal"},
     )
 
     data = parse_json_response(response.output_text)
@@ -105,7 +104,6 @@ def generate_podcast_script(stories: list[dict[str, Any]]) -> str:
     response = client.responses.create(
         model=model,
         input=prompt,
-        reasoning={"effort": "minimal"},
     )
     return response.output_text.strip()
 
@@ -122,7 +120,6 @@ def generate_podcast_audio(script: str, output_path: Path) -> None:
         model=tts_model,
         voice=voice,
         input=cleaned_script,
-        instructions="落ち着いた日本語の朝のニュース番組のように、聞き取りやすく自然に話してください。",
     ) as response:
         response.stream_to_file(output_path)
 
