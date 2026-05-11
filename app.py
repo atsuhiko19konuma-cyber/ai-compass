@@ -11,7 +11,7 @@ from utils import get_today_dir, load_json, today_string
 
 st.set_page_config(
     page_title="AI Compass",
-    page_icon="AI",
+    page_icon="🧭",
     layout="centered",
     initial_sidebar_state="collapsed",
 )

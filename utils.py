@@ -1,6 +1,6 @@
 import json
 import re
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from html import unescape
 from pathlib import Path
 
@@ -9,7 +9,9 @@ DATA_DIR = Path("data")
 
 
 def today_string() -> str:
-    return datetime.now().strftime("%Y-%m-%d")
+    # Use Japan Standard Time (UTC+9)
+    jst = timezone(timedelta(hours=9))
+    return datetime.now(jst).strftime("%Y-%m-%d")
 
 
 def get_today_dir() -> Path:

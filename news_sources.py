@@ -169,7 +169,7 @@ AVOID_KEYWORDS = [
 ]
 
 
-def fetch_articles(days_back: int = 7) -> list[dict[str, Any]]:
+def fetch_articles(days_back: int = 3) -> list[dict[str, Any]]:
     """Fetch recent articles from RSS feeds. Broken feeds are skipped quietly."""
     cutoff = datetime.now(timezone.utc) - timedelta(days=days_back)
     articles: list[dict[str, Any]] = []
@@ -253,8 +253,14 @@ def select_top_articles(articles: list[dict[str, Any]], limit: int = 3) -> list[
         published = article.get("published")
         if published:
             try:
-                age = datetime.now(timezone.utc) - datetime.fromisoformat(published)
-                score += max(0, 10 - age.days)
+                # Use JST for age calculation
+                jst = timezone(timedelta(hours=9))
+                age = datetime.now(jst) - datetime.fromisoformat(published)
+                # Significantly boost fresh articles (less than 24h old)
+                if age.days == 0:
+                    score += 20
+                else:
+                    score += max(0, 5 - age.days)
             except Exception:
                 pass
 
